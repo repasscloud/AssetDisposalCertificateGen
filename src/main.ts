@@ -16,11 +16,11 @@ import { downloadBlob } from "./utils/downloadBlob.ts";
 /* Sample data strings (for the "Download sample" buttons)            */
 /* ------------------------------------------------------------------ */
 const SAMPLE_CSV = `AssetId,SerialNumber,DeviceType,MakeModel,StorageType,WipeMethod,WipeTool,WipeResult,WipeDate,WipedBy,VerificationDate,VerifiedBy,VerificationStatus,DisposalPath,DisposalDate,DisposalLocation,BatchId,ApprovedBy,Notes
-M005370,PF1YFKPN,Laptop,Lenovo ThinkPad P53s,SSD,NIST 800-88 Purge,Lenovo BIOS/UEFI Secure Erase + BitLocker key destruction,Successful,2026-05-27,Simon Fahim,2026-05-27,Irwin Torres,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Danijel Wynyard,No recoverable organisational data identified after verification. Device released for recycling after internal verification.
-M005371,5CG1234XYZ,Desktop,HP EliteDesk 800 G5,HDD,DoD 5220.22-M (7-pass),Blancco Drive Eraser v7.4,Successful,2026-05-25,Maria Nguyen,2026-05-26,James Liu,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Danijel Wynyard,Three-pass overwrite completed and verified. Hard drive verified as data-free before disposal.
-M005372,4ZXCVBN7,Server,Dell PowerEdge R740,SSD,NIST 800-88 Purge,Dell OpenManage Secure Erase,Successful,2026-05-20,Alice Park,2026-05-21,Bob Chen,Verified,Certified hardware destruction,2026-05-27,SecureWipe Pty Ltd,DISP-20260520-090000,Danijel Wynyard,Server NVMe drives purged via Dell OpenManage. Physical destruction certificate received from SecureWipe Pty Ltd. All RAID volumes dismembered prior to disposal.
-M005373,ABCD1234EF,Tablet,Microsoft Surface Pro 7,SSD,NIST 800-88 Purge,Microsoft Surface UEFI Reset + BitLocker destruction,Successful,2026-05-22,Simon Fahim,2026-05-23,Irwin Torres,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Danijel Wynyard,Factory reset performed after UEFI Secure Erase. BitLocker recovery key destroyed. No user data found post-verification.
-M005374,XYZ9876543,All-in-One,Apple iMac 27-inch,SSD,Apple Erase All Content and Settings,Apple Configurator 2 + Erase All Content,Successful,2026-05-24,Maria Nguyen,2026-05-25,James Liu,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Danijel Wynyard,Apple M1 iMac erased via Erase All Content and Settings. Verified by reboot showing Setup Assistant. iCloud account removed and activation lock disabled prior to disposal.
+M005370,PF1YFKPN,Laptop,Lenovo ThinkPad P53s,SSD,NIST 800-88 Purge,Lenovo BIOS/UEFI Secure Erase + BitLocker key destruction,Successful,2026-05-27,Bob Marley,2026-05-27,Jordan Whitaker,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Kate Winslet,No recoverable organisational data identified after verification. Device released for recycling after internal verification.
+M005371,5CG1234XYZ,Desktop,HP EliteDesk 800 G5,HDD,DoD 5220.22-M (7-pass),Blancco Drive Eraser v7.4,Successful,2026-05-25,Maria Nguyen,2026-05-26,James Liu,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Kate Winslet,Three-pass overwrite completed and verified. Hard drive verified as data-free before disposal.
+M005372,4ZXCVBN7,Server,Dell PowerEdge R740,SSD,NIST 800-88 Purge,Dell OpenManage Secure Erase,Successful,2026-05-20,Alice Park,2026-05-21,Bob Chen,Verified,Certified hardware destruction,2026-05-27,SecureWipe Pty Ltd,DISP-20260520-090000,Kate Winslet,Server NVMe drives purged via Dell OpenManage. Physical destruction certificate received from SecureWipe Pty Ltd. All RAID volumes dismembered prior to disposal.
+M005373,ABCD1234EF,Tablet,Microsoft Surface Pro 7,SSD,NIST 800-88 Purge,Microsoft Surface UEFI Reset + BitLocker destruction,Successful,2026-05-22,Bob Marley,2026-05-23,Jordan Whitaker,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Kate Winslet,Factory reset performed after UEFI Secure Erase. BitLocker recovery key destroyed. No user data found post-verification.
+M005374,XYZ9876543,All-in-One,Apple iMac 27-inch,SSD,Apple Erase All Content and Settings,Apple Configurator 2 + Erase All Content,Successful,2026-05-24,Maria Nguyen,2026-05-25,James Liu,Verified,E-waste recycling,2026-05-28,Local Asset Disposal Company,,Kate Winslet,Apple M1 iMac erased via Erase All Content and Settings. Verified by reboot showing Setup Assistant. iCloud account removed and activation lock disabled prior to disposal.
 `;
 
 const SAMPLE_JSON = JSON.stringify(
@@ -35,15 +35,15 @@ const SAMPLE_JSON = JSON.stringify(
       wipeTool: "Lenovo BIOS/UEFI Secure Erase + BitLocker key destruction",
       wipeResult: "Successful",
       wipeDate: "2026-05-27",
-      wipedBy: "Simon Fahim",
+      wipedBy: "Bob Marley",
       verificationDate: "2026-05-27",
-      verifiedBy: "Irwin Torres",
+      verifiedBy: "Jordan Whitaker",
       verificationStatus: "Verified",
       disposalPath: "E-waste recycling",
       disposalDate: "2026-05-28",
       disposalLocation: "Local Asset Disposal Company",
       batchId: "",
-      approvedBy: "Danijel Wynyard",
+      approvedBy: "Kate Winslet",
       notes:
         "No recoverable organisational data identified after verification. Device released for recycling after internal verification.",
     },
@@ -65,7 +65,7 @@ const SAMPLE_JSON = JSON.stringify(
       disposalDate: "2026-05-28",
       disposalLocation: "Local Asset Disposal Company",
       batchId: "",
-      approvedBy: "Danijel Wynyard",
+      approvedBy: "Kate Winslet",
       notes:
         "Three-pass overwrite completed and verified. Hard drive verified as data-free before disposal.",
     },
@@ -87,7 +87,7 @@ const SAMPLE_JSON = JSON.stringify(
       disposalDate: "2026-05-27",
       disposalLocation: "SecureWipe Pty Ltd",
       batchId: "DISP-20260520-090000",
-      approvedBy: "Danijel Wynyard",
+      approvedBy: "Kate Winslet",
       notes:
         "Server NVMe drives purged via Dell OpenManage. Physical destruction certificate received from SecureWipe Pty Ltd. All RAID volumes dismembered prior to disposal.",
     },

@@ -130,15 +130,15 @@ Provide a JSON array of objects using the same field names in **camelCase**:
     "wipeTool": "Lenovo BIOS/UEFI Secure Erase + BitLocker key destruction",
     "wipeResult": "Successful",
     "wipeDate": "2026-05-27",
-    "wipedBy": "Simon Fahim",
+    "wipedBy": "Bob Marley",
     "verificationDate": "2026-05-27",
-    "verifiedBy": "Irwin Torres",
+    "verifiedBy": "Jordan Whitaker",
     "verificationStatus": "Verified",
     "disposalPath": "E-waste recycling",
     "disposalDate": "2026-05-28",
     "disposalLocation": "Local Asset Disposal Company",
     "batchId": "",
-    "approvedBy": "Danijel Wynyard",
+    "approvedBy": "Kate Winslet",
     "notes": "No recoverable organisational data identified after verification."
   }
 ]

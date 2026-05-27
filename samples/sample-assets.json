@@ -9,15 +9,15 @@
     "wipeTool": "Lenovo BIOS/UEFI Secure Erase + BitLocker key destruction",
     "wipeResult": "Successful",
     "wipeDate": "2026-05-27",
-    "wipedBy": "Simon Fahim",
+    "wipedBy": "Bob Marley",
     "verificationDate": "2026-05-27",
-    "verifiedBy": "Irwin Torres",
+    "verifiedBy": "Jordan Whitaker",
     "verificationStatus": "Verified",
     "disposalPath": "E-waste recycling",
     "disposalDate": "2026-05-28",
     "disposalLocation": "Local Asset Disposal Company",
     "batchId": "",
-    "approvedBy": "Danijel Wynyard",
+    "approvedBy": "Kate Winslet",
     "notes": "No recoverable organisational data identified after verification. Device released for recycling after internal verification."
   },
   {
@@ -38,7 +38,7 @@
     "disposalDate": "2026-05-28",
     "disposalLocation": "Local Asset Disposal Company",
     "batchId": "",
-    "approvedBy": "Danijel Wynyard",
+    "approvedBy": "Kate Winslet",
     "notes": "Three-pass overwrite completed and verified. Hard drive verified as data-free before disposal."
   },
   {
@@ -59,7 +59,7 @@
     "disposalDate": "2026-05-27",
     "disposalLocation": "SecureWipe Pty Ltd",
     "batchId": "DISP-20260520-090000",
-    "approvedBy": "Danijel Wynyard",
+    "approvedBy": "Kate Winslet",
     "notes": "Server NVMe drives purged via Dell OpenManage. Physical destruction certificate received from SecureWipe Pty Ltd. All RAID volumes dismembered prior to disposal."
   },
   {
@@ -72,15 +72,15 @@
     "wipeTool": "Microsoft Surface UEFI Reset + BitLocker key destruction",
     "wipeResult": "Successful",
     "wipeDate": "2026-05-22",
-    "wipedBy": "Simon Fahim",
+    "wipedBy": "Bob Marley",
     "verificationDate": "2026-05-23",
-    "verifiedBy": "Irwin Torres",
+    "verifiedBy": "Jordan Whitaker",
     "verificationStatus": "Verified",
     "disposalPath": "E-waste recycling",
     "disposalDate": "2026-05-28",
     "disposalLocation": "Local Asset Disposal Company",
     "batchId": "",
-    "approvedBy": "Danijel Wynyard",
+    "approvedBy": "Kate Winslet",
     "notes": "Factory reset performed after UEFI Secure Erase. BitLocker recovery key destroyed. No user data found post-verification."
   },
   {
@@ -101,7 +101,7 @@
     "disposalDate": "2026-05-28",
     "disposalLocation": "Local Asset Disposal Company",
     "batchId": "",
-    "approvedBy": "Danijel Wynyard",
+    "approvedBy": "Kate Winslet",
     "notes": "Apple M1 iMac erased via Erase All Content and Settings. Verified by reboot showing Setup Assistant. iCloud account removed and activation lock disabled prior to disposal."
   }
 ]
