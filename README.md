@@ -1,5 +1,7 @@
 # Asset Disposal Certificate Generator
 
+[![Build & Test](https://github.com/repasscloud/AssetDisposalCertificateGen/actions/workflows/build-test.yml/badge.svg)](https://github.com/repasscloud/AssetDisposalCertificateGen/actions/workflows/build-test.yml)
+
 A privacy-first, client-side Progressive Web App (PWA) for generating tamper-evident asset disposal certificates, a consolidated PDF batch report, and an audit-ready ZIP archive — entirely within your browser.
 
 > **All processing occurs locally in your browser. No data is uploaded, stored, or retained.**

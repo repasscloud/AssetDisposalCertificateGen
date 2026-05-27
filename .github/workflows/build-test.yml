@@ -1,0 +1,49 @@
+name: Build & Test
+
+# ── Triggers ─────────────────────────────────────────────────────────────────
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# ── Permissions ───────────────────────────────────────────────────────────────
+permissions:
+  contents: read
+
+# ── Shared config ─────────────────────────────────────────────────────────────
+env:
+  NODE_VERSION: "22"
+
+# ── Jobs ──────────────────────────────────────────────────────────────────────
+jobs:
+
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Type-check without emitting — catches TS errors before building
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      # Runs prebuild (create-icons.mjs) then tsc + vite build
+      - name: Build
+        run: npm run build
+
+      # Pure Node.js smoke tests — no browser required
+      - name: Smoke test
+        run: npm test
