@@ -1,0 +1,5 @@
+# Cloudflare Pages project configuration
+# Docs: https://developers.cloudflare.com/pages/configuration/wrangler-configuration/
+
+name = "asset-disposal-cergen"
+pages_build_output_dir = "dist"
