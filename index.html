@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate local asset wipe certificates, a PDF batch report, and an audit ZIP from CSV or JSON. All processing is performed locally in this browser." />
+    <meta name="theme-color" content="#1a2332" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+    <title>Asset Disposal Certificate Generator</title>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-inner">
+          <div class="header-icon" aria-hidden="true">🗂️</div>
+          <div>
+            <h1 class="app-title">Asset Disposal Certificate Generator</h1>
+            <p class="app-subtitle">
+              Generate local asset wipe certificates, a PDF batch report, and an audit ZIP from CSV or JSON.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <!-- Privacy Notice -->
+        <section class="privacy-notice" role="note" aria-label="Privacy notice">
+          <span class="privacy-icon" aria-hidden="true">🔒</span>
+          <p>
+            <strong>All processing is performed locally in this browser.</strong>
+            Imported asset data is not uploaded, stored, or retained by this application.
+            Refreshing or closing this page clears all imported records.
+          </p>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="card upload-section" aria-labelledby="upload-heading">
+          <h2 id="upload-heading">Import Asset Data</h2>
+          <p class="section-description">
+            Upload a CSV or JSON file containing asset disposal records.
+            The file will be parsed locally in your browser.
+          </p>
+
+          <div class="upload-area" id="upload-area" role="button" tabindex="0"
+               aria-label="Upload CSV or JSON file — click or drag and drop">
+            <div class="upload-icon" aria-hidden="true">📁</div>
+            <p class="upload-label">Drag &amp; drop a CSV or JSON file here, or</p>
+            <label for="file-input" class="btn btn-primary">
+              Choose File
+            </label>
+            <input type="file" id="file-input" accept=".csv,.json"
+                   aria-label="Choose a CSV or JSON file" />
+            <p class="upload-hint" id="file-hint">No file selected</p>
+          </div>
+
+          <!-- Format Help -->
+          <details class="format-help">
+            <summary>Required format &amp; field reference</summary>
+            <div class="format-body">
+              <h3>Required CSV header (in any order):</h3>
+              <pre class="code-block" aria-label="Required CSV headers">AssetId, SerialNumber, DeviceType, MakeModel, StorageType,
+WipeMethod, WipeTool, WipeResult, WipeDate, WipedBy,
+VerificationDate, VerifiedBy, VerificationStatus,
+DisposalPath, DisposalDate, DisposalLocation, ApprovedBy</pre>
+
+              <h3>Optional fields:</h3>
+              <pre class="code-block">BatchId, Notes</pre>
+
+              <h3>Date format (required):</h3>
+              <pre class="code-block">yyyy-MM-dd &nbsp; e.g. 2026-05-27</pre>
+
+              <h3>Accepted values:</h3>
+              <pre class="code-block">WipeResult: Successful
+VerificationStatus: Verified</pre>
+
+              <div class="sample-downloads">
+                <h3>Sample files:</h3>
+                <button id="btn-sample-csv" class="btn btn-secondary">
+                  📥 Download sample CSV
+                </button>
+                <button id="btn-sample-json" class="btn btn-secondary">
+                  📥 Download sample JSON
+                </button>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <!-- Validation Summary -->
+        <section class="card validation-section hidden" id="validation-section"
+                 aria-labelledby="validation-heading" aria-live="polite">
+          <h2 id="validation-heading">Validation Summary</h2>
+          <div class="validation-stats" id="validation-stats" role="status"></div>
+          <div class="validation-messages" id="validation-messages"></div>
+        </section>
+
+        <!-- Preview Table -->
+        <section class="card preview-section hidden" id="preview-section"
+                 aria-labelledby="preview-heading">
+          <div class="preview-header">
+            <h2 id="preview-heading">Records Preview</h2>
+            <span class="preview-note" id="preview-note" aria-live="polite"></span>
+          </div>
+          <div class="table-wrapper" role="region" aria-label="Imported asset records">
+            <table class="preview-table" id="preview-table">
+              <thead>
+                <tr>
+                  <th scope="col">Asset ID</th>
+                  <th scope="col">Serial Number</th>
+                  <th scope="col">Device Type</th>
+                  <th scope="col">Make / Model</th>
+                  <th scope="col">Wipe Result</th>
+                  <th scope="col">Verif. Status</th>
+                  <th scope="col">Disposal Date</th>
+                  <th scope="col">Certificate File</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="preview-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Actions -->
+        <section class="actions-section" aria-label="Export actions">
+          <button id="btn-generate" class="btn btn-generate" disabled
+                  aria-disabled="true" aria-describedby="generate-help">
+            <span class="btn-icon" aria-hidden="true">📦</span>
+            Generate ZIP
+          </button>
+          <p class="generate-help hidden" id="generate-help"></p>
+          <button id="btn-clear" class="btn btn-danger hidden"
+                  aria-label="Clear imported data and reset the form">
+            <span class="btn-icon" aria-hidden="true">🗑️</span>
+            Clear Data
+          </button>
+        </section>
+
+        <!-- Progress -->
+        <div class="progress-section hidden" id="progress-section" role="status" aria-live="polite">
+          <div class="progress-spinner" aria-hidden="true"></div>
+          <p class="progress-text" id="progress-text">Processing…</p>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <p>
+          Asset Disposal Certificate Generator &mdash; runs entirely in your browser.
+          No data leaves your device.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

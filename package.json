@@ -1,0 +1,23 @@
+{
+  "name": "asset-disposal-certificate-gen",
+  "version": "1.0.0",
+  "description": "Asset Disposal Certificate Generator — client-side PWA",
+  "type": "module",
+  "scripts": {
+    "predev": "node create-icons.mjs",
+    "dev": "vite",
+    "prebuild": "node create-icons.mjs",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "papaparse": "^5.4.1",
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "@types/papaparse": "^5.3.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

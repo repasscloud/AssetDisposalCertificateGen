@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Danijel.Wynyard\\\\Source\\\\repos\\\\AssetDisposalCertificateGen\" -Force)",
+      "Bash(Select-Object Name, Length, LastWriteTime)",
+      "Bash(node create-icons.mjs)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4173/)",
+      "Bash(curl -s http://localhost:4173/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4173/sw.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4173/manifest.webmanifest)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4173/icons/icon-192.png)",
+      "Bash(node *)",
+      "Bash(pkill -f \"vite preview\")",
+      "PowerShell(npm run *)"
+    ]
+  }
+}

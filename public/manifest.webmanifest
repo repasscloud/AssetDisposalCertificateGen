@@ -1,0 +1,23 @@
+{
+  "name": "Asset Disposal Certificate Generator",
+  "short_name": "Disposal Certs",
+  "description": "Generate local asset wipe certificates, a PDF batch report, and an audit ZIP from CSV or JSON.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a2332",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
