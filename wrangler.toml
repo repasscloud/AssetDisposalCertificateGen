@@ -1,5 +1,8 @@
-# Cloudflare Pages project configuration
-# Docs: https://developers.cloudflare.com/pages/configuration/wrangler-configuration/
+# Cloudflare Workers + Static Assets configuration
+# Docs: https://developers.cloudflare.com/workers/static-assets/
 
 name = "asset-disposal-cergen"
-pages_build_output_dir = "dist"
+compatibility_date = "2026-05-27"
+
+[assets]
+directory = "./dist"
