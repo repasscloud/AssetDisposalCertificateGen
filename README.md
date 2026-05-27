@@ -294,4 +294,4 @@ This app:
 
 ## Licence
 
-Internal tooling — all rights reserved.
+MIT License
