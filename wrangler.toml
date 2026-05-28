@@ -1,7 +1,7 @@
 # Cloudflare Workers + Static Assets configuration
 # Docs: https://developers.cloudflare.com/workers/static-assets/
 
-name = "asset-disposal-cergen"
+name = "assetdisposalcertificategen"
 compatibility_date = "2026-05-27"
 
 [assets]
